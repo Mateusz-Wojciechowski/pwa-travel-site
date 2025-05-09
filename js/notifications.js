@@ -37,13 +37,53 @@ function initializeFirebase() {
       }
     }
   }
+
+  // Zamiast funkcji addNotificationButton()
+function setupNotificationButton() {
+  const button = document.getElementById('notification-button');
+  if (!button) return;
+  
+  // Dodaj obsługę kliknięcia przycisku
+  button.addEventListener('click', togglePushNotifications);
+}
+
+// Zaktualizuj funkcję initializePushNotifications()
+function initializePushNotifications() {
+  const messaging = firebase.messaging();
+  
+  // Skonfiguruj istniejący przycisk do powiadomień
+  setupNotificationButton();
+  
+  // Sprawdź, czy użytkownik jest już zapisany
+  messaging.getToken().then(currentToken => {
+    if (currentToken) {
+      console.log('Użytkownik jest już zapisany do powiadomień');
+      updateSubscriptionButton(true);
+      // Tutaj możesz wysłać token do swojego serwera
+      saveTokenToDatabase(currentToken);
+    } else {
+      console.log('Użytkownik nie jest zapisany do powiadomień');
+      updateSubscriptionButton(false);
+    }
+  }).catch(err => {
+    console.log('Wystąpił błąd podczas pobierania tokenu: ', err);
+    updateSubscriptionButton(false);
+  });
+  
+  // Nasłuchuj wiadomości, gdy aplikacja jest otwarta
+  messaging.onMessage(payload => {
+    console.log('Wiadomość otrzymana: ', payload);
+    
+    // Wyświetl powiadomienie na stronie
+    showInAppNotification(payload.notification.title, payload.notification.body);
+  });
+}
   
   // Funkcja inicjalizująca powiadomienia push
   function initializePushNotifications() {
     const messaging = firebase.messaging();
     
     // Dodaj przycisk do UI, aby użytkownik mógł zapisać się do powiadomień
-    addNotificationButton();
     
     // Sprawdź, czy użytkownik jest już zapisany
     messaging.getToken().then(currentToken => {
@@ -70,26 +110,6 @@ function initializeFirebase() {
     });
   }
   
-  // Funkcja do dodania przycisku zapisu/wypisu do powiadomień
-  function addNotificationButton() {
-    const container = document.querySelector('.offline-notice');
-    if (!container) return;
-    
-    const notificationUI = document.createElement('div');
-    notificationUI.className = 'notification-ui';
-    notificationUI.innerHTML = `
-      <div class="offline-card">
-        <h3>Powiadomienia Podróżnicze</h3>
-        <p>Otrzymuj informacje o nowych destynacjach, promocjach i inspiracjach podróżniczych.</p>
-        <button id="notification-button" class="btn primary-btn">Zapisz się do powiadomień</button>
-      </div>
-    `;
-    
-    container.appendChild(notificationUI);
-    
-    // Dodaj obsługę kliknięcia przycisku
-    document.getElementById('notification-button').addEventListener('click', togglePushNotifications);
-  }
   
   // Funkcja do aktualizacji stanu przycisku
   function updateSubscriptionButton(isSubscribed) {
