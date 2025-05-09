@@ -27,7 +27,9 @@ const filesToCache = [
   './images/destinations/santorini.jpg',
   './images/destinations/newyork.jpg',
   './images/destinations/rio.jpg',
-  './favicon.ico'
+  './favicon.ico',
+  './firebase-messaging-sw.js',
+  './js/notifications.js'
 ];
 
 // Instalacja Service Worker'a i buforowanie plików
