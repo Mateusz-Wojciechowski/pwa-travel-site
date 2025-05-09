@@ -4,12 +4,13 @@ importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compa
 
 // Konfiguracja Firebase ze szczegółami Twojego projektu
 firebase.initializeApp({
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDSJAJwDhxhEpoClhnOtwKiplee-q5VLLs",
+  authDomain: "journey-snap-pwa.firebaseapp.com",
+  projectId: "journey-snap-pwa",
+  storageBucket: "journey-snap-pwa.firebasestorage.app",
+  messagingSenderId: "923491205070",
+  appId: "1:923491205070:web:3f2960a502cebd14e7359f",
+  measurementId: "G-D9JHF6YEMC"
 });
 
 const messaging = firebase.messaging();
@@ -42,7 +43,7 @@ self.addEventListener('notificationclick', function(event) {
     clickAction = event.notification.data.url;
   }
 
-  // Otwórz lub skupić istniejące okno
+  // Otwórz lub skup istniejące okno
   event.waitUntil(
     clients.matchAll({type: 'window'}).then(windowClients => {
       // Sprawdź, czy już mamy otwarte okno i przekieruj do niego
@@ -60,3 +61,5 @@ self.addEventListener('notificationclick', function(event) {
     })
   );
 });
+
+console.log("Service Worker do powiadomień zarejestrowany");
