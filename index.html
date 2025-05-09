@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journey Snap - Capture Your Adventures</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/pwa-icon-152.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Journey Snap">
+  <meta name="theme-color" content="#3f51b5">
+  
+  <!-- Splash Screen images for iOS -->
+  <link rel="apple-touch-startup-image" href="images/apple-splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px)">
+  <link rel="apple-touch-startup-image" href="images/apple-splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px)">
+  <link rel="apple-touch-startup-image" href="images/apple-splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px)">
+  <link rel="apple-touch-startup-image" href="images/apple-splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px)">
+  <link rel="apple-touch-startup-image" href="images/apple-splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px)">
+  <link rel="apple-touch-startup-image" href="images/apple-splash-1536x2048.png" media="(min-device-width: 768px) and (max-device-width: 1024px)">
+  <link rel="apple-touch-startup-image" href="images/apple-splash-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 1112px)">
+  <link rel="apple-touch-startup-image" href="images/apple-splash-1668x2388.png" media="(min-device-width: 834px) and (max-device-width: 1194px)">
+  <link rel="apple-touch-startup-image" href="images/apple-splash-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1366px)">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1 class="logo">Journey Snap</h1>
+      <p class="tagline">Capture Your Adventures</p>
+    </header>
+    
+    <main class="main-content">
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Your Travel Story Begins Here</h2>
+          <p>Discover beautiful destinations, save memories, and plan your next adventure</p>
+          <a href="pages/destinations.html" class="btn primary-btn">Explore Destinations</a>
+        </div>
+      </section>
+      
+      <section class="features">
+        <div class="feature-card">
+          <img src="images/icons/map.svg" alt="Destinations" class="feature-icon">
+          <h3>Popular Destinations</h3>
+          <p>Discover breathtaking places around the world</p>
+          <a href="pages/destinations.html" class="feature-link">Explore</a>
+        </div>
+        
+        <div class="feature-card">
+          <img src="images/icons/gallery.svg" alt="Gallery" class="feature-icon">
+          <h3>Travel Gallery</h3>
+          <p>Get inspired by stunning travel photography</p>
+          <a href="pages/gallery.html" class="feature-link">View Gallery</a>
+        </div>
+        
+        <div class="feature-card">
+          <img src="images/icons/add.svg" alt="Add Memories" class="feature-icon">
+          <h3>Your Memories</h3>
+          <p>Save your precious travel moments</p>
+          <a href="pages/memories.html" class="feature-link">Add Memory</a>
+        </div>
+      </section>
+      
+      <section class="offline-notice">
+        <div class="offline-card">
+          <h3>Works Offline!</h3>
+          <p>Add Journey Snap to your home screen and access your travel memories even without internet connection.</p>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-item active">
+          <img src="images/icons/home.svg" alt="Home" class="nav-icon">
+          <span>Home</span>
+        </a>
+        <a href="pages/destinations.html" class="nav-item">
+          <img src="images/icons/map.svg" alt="Destinations" class="nav-icon">
+          <span>Destinations</span>
+        </a>
+        <a href="pages/gallery.html" class="nav-item">
+          <img src="images/icons/gallery.svg" alt="Gallery" class="nav-icon">
+          <span>Gallery</span>
+        </a>
+        <a href="pages/memories.html" class="nav-item">
+          <img src="images/icons/add.svg" alt="Memories" class="nav-icon">
+          <span>Memories</span>
+        </a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
